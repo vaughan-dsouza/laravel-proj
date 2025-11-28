@@ -1,0 +1,39 @@
+composer install 
+npm install 
+php artisan serve
+npm run dev (vite server)
+
+composer require laravel/breeze --dev
+php artisan install breeze
+
+--php artisan list 
+php artisan config:publish broadcasting
+php artisan make:controller WelcomeController
+php artisan make:model Note -m 
+php artisan migrate
+php artisan make:factory Notefactory --model=Note
+#Note: factory(100)->create();
+php artisan db:seed
+php artisan migrate --seed
+php artisan migrate:refresh --seed
+php artisan make:controller NoteController --resource --model=Note
+Route::resource('note', NoteController::class);
+php artisan make:view note.index
+
+{{ slot }} <x-layout>
+Databast::query()->orderBy('created_at', 'desc')->paginate(10);  //defaullt is 15
+return view('pageName.index', ['notes' => $notes]);
+Str::words($string, 90)
+{{ route('note.create', $note) }}
+@vite(['resources/css/app.css'])
+
+npm run build to build css and js files
+return to_route('note.show', $note)->with('message', 'your note has been successfully created');
+@csrf
+@method('PUT')
+$note::create()/update()/delete()
+{{ $notes->links() }}
+<x-app-layout>
+
+Route::redirect('/', '/note')->name('dashboard');
+Note::query()->where('user_id', request()->user()->id)...
